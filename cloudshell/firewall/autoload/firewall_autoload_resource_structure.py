@@ -1,7 +1,7 @@
 from cloudshell.shell.core.driver_context import AutoLoadResource
-from cloudshell.firewall.autoload.networking_autoload_resource_attributes import GenericResourceAttribute, \
-    NetworkingStandardChassisAttributes, NetworkingStandardModuleAttributes, NetworkingStandardPortAttributes, \
-    NetworkingStandardPortChannelAttributes, NetworkingStandardPowerPortAttributes
+from cloudshell.firewall.autoload.firewall_autoload_resource_attributes import GenericResourceAttribute, \
+    FirewallStandardChassisAttributes, FirewallStandardModuleAttributes, FirewallStandardPortAttributes, \
+    FirewallStandardPortChannelAttributes, FirewallStandardPowerPortAttributes
 
 
 class GenericResource:
@@ -31,30 +31,30 @@ class Chassis(GenericResource):
     def __init__(self, name='', model='Generic Chassis', relative_path='', **attributes_dict):
         if name == '':
             name = 'Chassis {0}'.format(relative_path)
-        self.attributes_class = NetworkingStandardChassisAttributes
+        self.attributes_class = FirewallStandardChassisAttributes
         GenericResource.__init__(self, name, model, relative_path, **attributes_dict)
 
 
 class PowerPort(GenericResource):
     def __init__(self, name='', model='Generic Power Port', relative_path='', **attributes_dict):
-        self.attributes_class = NetworkingStandardPowerPortAttributes
+        self.attributes_class = FirewallStandardPowerPortAttributes
         GenericResource.__init__(self, name, model, relative_path, **attributes_dict)
 
 
 class Port(GenericResource):
     def __init__(self, name='', model='Generic Port', relative_path='', **attributes_dict):
         port_name = name.replace('/', '-').replace('\s+', '')
-        self.attributes_class = NetworkingStandardPortAttributes
+        self.attributes_class = FirewallStandardPortAttributes
         GenericResource.__init__(self, port_name, model, relative_path, **attributes_dict)
 
 
 class Module(GenericResource):
     def __init__(self, name='', model='Generic Module', relative_path='', **attributes_dict):
-        self.attributes_class = NetworkingStandardModuleAttributes
+        self.attributes_class = FirewallStandardModuleAttributes
         GenericResource.__init__(self, name, model, relative_path, **attributes_dict)
 
 
 class PortChannel(GenericResource):
     def __init__(self, name='', model='Generic Port Channel', relative_path='', **attributes_dict):
-        self.attributes_class = NetworkingStandardPortChannelAttributes
+        self.attributes_class = FirewallStandardPortChannelAttributes
         GenericResource.__init__(self, name, model, relative_path, **attributes_dict)

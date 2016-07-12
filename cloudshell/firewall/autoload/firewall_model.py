@@ -1,5 +1,5 @@
 from cloudshell.firewall.autoload.model.generic_resource import GenericResource
-from cloudshell.firewall.autoload.networking_attributes import ChassisAttributes, \
+from cloudshell.firewall.autoload.firewall_attributes import ChassisAttributes, \
     PowerPortAttributes, PortAttributes, ModuleAttributes, SubModuleAttributes, PortChannelAttributes, \
     RootAttributes
 

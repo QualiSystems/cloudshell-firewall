@@ -7,7 +7,7 @@ class GenericResourceAttribute:
         return attributes_dict.values()
 
 
-class NetworkingStandardRootAttributes(GenericResourceAttribute):
+class FirewallStandardRootAttributes(GenericResourceAttribute):
     def __init__(self, relative_path='', model='', vendor='', system_name='', location='',
                  contact='', version=''):
         self.vendor = AutoLoadAttribute(relative_path, 'Vendor', vendor)
@@ -18,20 +18,20 @@ class NetworkingStandardRootAttributes(GenericResourceAttribute):
         self.model = AutoLoadAttribute(relative_path, 'Model', model)
 
 
-class NetworkingStandardChassisAttributes(GenericResourceAttribute):
+class FirewallStandardChassisAttributes(GenericResourceAttribute):
     def __init__(self, relative_path, serial_number='', chassis_model=''):
         self.serial_number = AutoLoadAttribute(relative_path, 'Serial Number', serial_number)
         self.model = AutoLoadAttribute(relative_path, 'Model', chassis_model)
 
 
-class NetworkingStandardModuleAttributes(GenericResourceAttribute):
+class FirewallStandardModuleAttributes(GenericResourceAttribute):
     def __init__(self, relative_path, serial_number='', module_model='', version=''):
         self.serial_number = AutoLoadAttribute(relative_path, 'Serial Number', serial_number)
         self.module_model = AutoLoadAttribute(relative_path, 'Model', module_model)
         self.version = AutoLoadAttribute(relative_path, 'Version', version)
 
 
-class NetworkingStandardPortAttributes(GenericResourceAttribute):
+class FirewallStandardPortAttributes(GenericResourceAttribute):
     def __init__(self, relative_path, protocol_type='Transparent', description='', l2_protocol_type='ethernet', mac='',
                  mtu=0, bandwidth=0, adjacent='', ipv4_address='', ipv6_address='', duplex='', auto_negotiation=''):
         self.protocol_type = AutoLoadAttribute(relative_path, 'Protocol Type', protocol_type)
@@ -47,7 +47,7 @@ class NetworkingStandardPortAttributes(GenericResourceAttribute):
         self.ipv6_address = AutoLoadAttribute(relative_path, 'IPv6 Address', ipv6_address)
 
 
-class NetworkingStandardPortChannelAttributes(GenericResourceAttribute):
+class FirewallStandardPortChannelAttributes(GenericResourceAttribute):
     def __init__(self, relative_path, protocol_type='Transparent', description='', associated_ports='',
                  ipv4_address='', ipv6_address=''):
         self.protocol_type = AutoLoadAttribute(relative_path, 'Protocol Type', protocol_type)
@@ -57,7 +57,7 @@ class NetworkingStandardPortChannelAttributes(GenericResourceAttribute):
         self.ipv6_address = AutoLoadAttribute(relative_path, 'IPv6 Address', ipv6_address)
 
 
-class NetworkingStandardPowerPortAttributes(GenericResourceAttribute):
+class FirewallStandardPowerPortAttributes(GenericResourceAttribute):
     def __init__(self, relative_path, serial_number='', port_model='', version='', description=''):
         self.serial_number = AutoLoadAttribute(relative_path, 'Serial Number', serial_number)
         self.port_model = AutoLoadAttribute(relative_path, 'Model', port_model)
