@@ -156,7 +156,7 @@ class ConfigurationOperations(ConfigurationOperationsInterface):
 
         restore_params['restore_method'] = 'override'
         restore_params['configuration_type'] = 'running'
-        restore_params['vrf_management_name'] = None
+        # restore_params['vrf_management_name'] = None
 
         if hasattr(params, 'custom_params'):
             if hasattr(params.custom_params, 'restore_method'):
@@ -165,15 +165,15 @@ class ConfigurationOperations(ConfigurationOperationsInterface):
             if hasattr(params.custom_params, 'configuration_type'):
                 restore_params['configuration_type'] = params.custom_params.configuration_type
 
-            if hasattr(params.custom_params, 'vrf_management_name'):
-                restore_params['vrf_management_name'] = params.custom_params.vrf_management_name
+            # if hasattr(params.custom_params, 'vrf_management_name'):
+            #     restore_params['vrf_management_name'] = params.custom_params.vrf_management_name
 
         if UrlParser.FILENAME in url and url[UrlParser.FILENAME] and 'startup' in url[UrlParser.FILENAME]:
             restore_params['configuration_type'] = 'startup'
 
-        if 'vrf_management_name' not in restore_params:
-            restore_params['vrf_management_name'] = self._get_resource_attribute(self.resource_name,
-                                                                                 'VRF Management Name')
+        # if 'vrf_management_name' not in restore_params:
+        #     restore_params['vrf_management_name'] = self._get_resource_attribute(self.resource_name,
+        #                                                                          'VRF Management Name')
         restore_params['path'] = url
 
         self.restore(**restore_params)
@@ -225,9 +225,9 @@ class ConfigurationOperations(ConfigurationOperationsInterface):
         return result
 
     @abstractmethod
-    def save(self, folder_path, configuration_type, vrf_management_name=None):
+    def save(self, folder_path, configuration_type):
         pass
 
     @abstractmethod
-    def restore(self, path, configuration_type, restore_method, vrf_management_name=None):
+    def restore(self, path, configuration_type, restore_method):
         pass

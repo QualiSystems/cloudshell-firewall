@@ -9,11 +9,11 @@ class ConfigurationOperationsInterface(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def save(self, folder_path, configuration_type, vrf_management_name=None):
+    def save(self, folder_path, configuration_type):
         pass
 
     @abstractmethod
-    def restore(self, path, configuration_type, restore_method, vrf_management_name=None):
+    def restore(self, path, configuration_type, restore_method):
         pass
 
     @abstractmethod
