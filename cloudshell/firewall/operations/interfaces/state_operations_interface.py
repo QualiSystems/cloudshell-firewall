@@ -1,18 +1,20 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from abc import ABCMeta
 from abc import abstractmethod
 
 
-class AutoloadOperationsInterface(object):
+class StateOperationsInterface(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def discover(self):
+    def health_check(self):
         pass
 
     @abstractmethod
-    def enable_snmp(self):
+    def shutdown(self):
         pass
 
-    @abstractmethod
-    def disable_snmp(self):
+    def reload(self):
         pass
