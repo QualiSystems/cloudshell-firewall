@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from abc import ABCMeta
 from abc import abstractmethod
 
@@ -17,23 +14,11 @@ class FirewallResourceDriverInterface:
         pass
 
     @abstractmethod
-    def send_custom_command(self, context, custom_command):
+    def save(self, context, folder_path, configuration_type, vrf_management_name):
         pass
 
     @abstractmethod
-    def send_custom_config_command(self, context, custom_command):
-        pass
-
-    @abstractmethod
-    def save(self, context, folder_path, configuration_type):
-        pass
-
-    @abstractmethod
-    def restore(self, context, path, configuration_type, restore_method):
-        pass
-
-    @abstractmethod
-    def update_firmware(self, context, remote_host, file_path):
+    def restore(self, context, path, configuration_type, restore_method, vrf_management_name):
         pass
 
     @abstractmethod
@@ -41,11 +26,11 @@ class FirewallResourceDriverInterface:
         pass
 
     @abstractmethod
-    def orchestration_restore(self, context, saved_artifact_info, custom_params=None):
+    def orchestration_restore(self, context, saved_artifact_info, custom_params):
         pass
 
     @abstractmethod
-    def orchestration_save(self, context, mode, custom_params=None):
+    def orchestration_save(self, context, mode, custom_params):
         pass
 
     @abstractmethod
@@ -53,7 +38,7 @@ class FirewallResourceDriverInterface:
         pass
 
     @abstractmethod
-    def load_firmware(self, context, path):
+    def load_firmware(self, context, path, vrf_management_name):
         pass
 
     @abstractmethod
