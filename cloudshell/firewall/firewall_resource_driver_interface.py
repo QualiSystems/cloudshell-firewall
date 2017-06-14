@@ -14,11 +14,11 @@ class FirewallResourceDriverInterface:
         pass
 
     @abstractmethod
-    def save(self, context, folder_path, configuration_type, vrf_management_name):
+    def save(self, context, folder_path, configuration_type):
         pass
 
     @abstractmethod
-    def restore(self, context, path, configuration_type, restore_method, vrf_management_name):
+    def restore(self, context, path, configuration_type, restore_method):
         pass
 
     @abstractmethod
@@ -38,7 +38,7 @@ class FirewallResourceDriverInterface:
         pass
 
     @abstractmethod
-    def load_firmware(self, context, path, vrf_management_name):
+    def load_firmware(self, context, path):
         pass
 
     @abstractmethod
